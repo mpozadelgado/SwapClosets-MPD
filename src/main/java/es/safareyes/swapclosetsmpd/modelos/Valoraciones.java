@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "Valoraciones")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,19 +28,19 @@ public class Valoraciones {
     @Column(name = "comentario")
     private String comentario;
 
-    @Column(name = "fecha")
-    private LocalDateTime fecha;
+    @Column(name = "fechacreacion")
+    private LocalDateTime fechaCreacion;
 
     @ManyToOne
-    @JoinColumn(name = "idsolicitud")
+    @JoinColumn(name = "id_solicitud")
     private Solicitudes solicitud;
 
-    @ManyToMany
-    @JoinTable(
-            name = "perfil_estilo",
-            joinColumns = @JoinColumn(name = "idperfil"),
-            inverseJoinColumns = @JoinColumn(name = "idestilo")
-    )
-    private List<Estilo> estilos;
+    @ManyToOne
+    @JoinColumn(name = "id_autor")
+    private Perfil autor;
+
+    @ManyToOne
+    @JoinColumn(name = "id_destinatario")
+    private Perfil destinatario;
 
 }

@@ -8,12 +8,19 @@ import lombok.*;
 
 @Entity
 @Table(name = "Usuario")
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor @Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+
+
+
+
+
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Integer id;
 
     @Column(name = "username")
@@ -22,6 +29,8 @@ public class Usuario {
     @Column(name = "contrasena")
     private String contrasena;
 
+    @Column(name = "email")
+    private String email;
 
 
 

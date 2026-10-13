@@ -6,7 +6,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "Notificaciones")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,17 +20,17 @@ public class Notificaciones {
     @Column(name = "id")
     private Integer id;
 
+    @Column(name = "mensaje")
+    private String mensaje;
+
     @Column(name = "tipo")
     private String tipo;
 
-    @Column(name = "masaje")
-    private String masaje;
+    @Column(name = "leido")
+    private Boolean leido;
 
-    @Column(name = "leida")
-    private Boolean leida;
-
-    @Column(name = "fecha")
-    private LocalDateTime fecha;
+    @Column(name = "fechacreacion")
+    private LocalDateTime fechaCreacion;
 
     @ManyToOne
     @JoinColumn(name = "idperfil")

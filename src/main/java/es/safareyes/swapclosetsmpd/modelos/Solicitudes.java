@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "Solicitudes")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,8 +21,8 @@ public class Solicitudes {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "tiemposolicitud")
-    private String tiempoSolicitud;
+    @Column(name = "tiposolicitud")
+    private String tiposolicitud;
 
     @Column(name = "estado")
     private String estado;
@@ -39,6 +39,10 @@ public class Solicitudes {
     @ManyToOne
     @JoinColumn(name = "idperfil")
     private Perfil perfil;
+
+    @ManyToOne
+    @JoinColumn(name = "id_prenda")
+    private Prenda prenda;
 
 
 

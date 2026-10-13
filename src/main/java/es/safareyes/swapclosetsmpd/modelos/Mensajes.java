@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "Mensajes")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -30,6 +30,9 @@ public class Mensajes {
     @Column(name = "horaenvio")
     private LocalTime horaEnvio;
 
+    @Column(name = "leido")
+    private Boolean leido;
+
     @ManyToOne
     @JoinColumn(name = "idemisor")
     private Perfil emisor;
@@ -38,6 +41,9 @@ public class Mensajes {
     @JoinColumn(name = "idreceptor")
     private Perfil receptor;
 
+    @ManyToOne
+    @JoinColumn(name = "idsolicitud")
+    private Solicitudes solicitud;
 
 
 
