@@ -1,4 +1,4 @@
-package es.safareyes.swapclosetsmpd.servicios;
+package es.safareyes.swapclosetsmpd;
 
 import es.safareyes.swapclosetsmpd.Repositorios.IRepositorioNotificaciones;
 import es.safareyes.swapclosetsmpd.Repositorios.IRepositorioPerfil;
