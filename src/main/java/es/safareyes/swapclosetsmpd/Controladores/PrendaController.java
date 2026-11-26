@@ -36,4 +36,15 @@ public class PrendaController {
     public PrendaDetalleDTO crear(@Valid @RequestBody PrendaCrearDTO dto) {
         return prendaService.crear(dto);
     }
+
+    @PutMapping("/{id}")
+    public PrendaDetalleDTO editar(@PathVariable Integer id, @Valid @RequestBody PrendaCrearDTO dto) {
+        return prendaService.editar(id, dto);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void retirar(@PathVariable Integer id) {
+        prendaService.retirar(id);
+    }
 }

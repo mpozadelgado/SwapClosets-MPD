@@ -11,4 +11,6 @@ public interface IPrendaService {
     PrendaDetalleDTO crear(PrendaCrearDTO dto);
     PrendaDetalleDTO obtener(Integer id);
     Page<PrendaTarjetaDTO> buscar(String texto, Integer idCategoria, String talla, int page, int size);
+    PrendaDetalleDTO editar(Integer id, PrendaCrearDTO dto);
+    void retirar(Integer id);
 }

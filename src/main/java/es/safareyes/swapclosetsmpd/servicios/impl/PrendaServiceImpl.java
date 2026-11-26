@@ -114,6 +114,40 @@ public class PrendaServiceImpl implements IPrendaService {
                 .map(p -> mapper.toTarjeta(p, primeraFoto(p.getId())));
     }
 
+    @Override
+    @Transactional
+    public PrendaDetalleDTO editar(Integer id, PrendaCrearDTO dto) {
+        Prenda prenda = prendaRepository.findById(id)
+                .orElseThrow(() -> new ElementoNoEncontrado("No existe la prenda con id " + id));
+
+        if (!prenda.getPerfil().getId().equals(dto.getIdPerfil())) {
+            throw new ReglaNegocioException("Solo puedes modificar tus propias prendas");
+        }
+
+        Categoria categoria = categoriaRepository.findById(dto.getIdCategoria())
+                .orElseThrow(() -> new ElementoNoEncontrado("La categoría no existe"));
+
+        prenda.setTitulo(dto.getTitulo());
+        prenda.setDescripcion(dto.getDescripcion());
+        prenda.setTalla(dto.getTalla());
+        prenda.setEstado(dto.getEstado());
+        prenda.setCategoria(categoria);
+        if (dto.getDisponibilidad() != null) {
+            prenda.setDisponibilidad(dto.getDisponibilidad());
+        }
+
+        return aDetalle(prendaRepository.save(prenda));
+    }
+
+    @Override
+    @Transactional
+    public void retirar(Integer id) {
+        Prenda prenda = prendaRepository.findById(id)
+                .orElseThrow(() -> new ElementoNoEncontrado("No existe la prenda con id " + id));
+        prenda.setDisponibilidad(false);
+        prendaRepository.save(prenda);
+    }
+
     private PrendaDetalleDTO aDetalle(Prenda prenda) {
         List<String> fotos = fotoRepository.findByPrendaIdOrderByOrdenAsc(prenda.getId())
                 .stream().map(Foto::getUrl).toList();
