@@ -43,11 +43,11 @@ public class Prenda {
     private LocalDate fechaPublicacion;
 
     @ManyToOne
-    @JoinColumn(name = "idperfil")
+    @JoinColumn(name = "id_perfil")
     private Perfil perfil;
 
     @ManyToOne
-    @JoinColumn(name = "idcategoria")
+    @JoinColumn(name = "id_categoria")
     private Categoria categoria;
 
 

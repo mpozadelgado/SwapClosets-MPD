@@ -43,14 +43,14 @@ public class Perfil {
     private String talla;
 
     @OneToOne
-    @JoinColumn(name = "idusuario")
+    @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
     @ManyToMany
     @JoinTable(
             name = "perfil_estilo",
-            joinColumns = @JoinColumn(name = "idperfil"),
-            inverseJoinColumns = @JoinColumn(name = "idestilo")
+            joinColumns = @JoinColumn(name = "id_perfil"),
+            inverseJoinColumns = @JoinColumn(name = "id_estilo")
     )
     private List<Estilo> estilos;
 }

@@ -37,7 +37,7 @@ public class Solicitudes {
     private LocalDateTime fechaRespuesta;
 
     @ManyToOne
-    @JoinColumn(name = "idperfil")
+    @JoinColumn(name = "id_perfil")
     private Perfil perfil;
 
     @ManyToOne

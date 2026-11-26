@@ -27,7 +27,7 @@ public class Foto {
     private Integer orden;
 
     @ManyToOne
-    @JoinColumn(name = "idprenda")
+    @JoinColumn(name = "id_prenda")
     private Prenda prenda;
 
 }

@@ -34,11 +34,11 @@ public class Mensajes {
     private Boolean leido;
 
     @ManyToOne
-    @JoinColumn(name = "idemisor")
+    @JoinColumn(name = "id_emisor")
     private Perfil emisor;
 
     @ManyToOne
-    @JoinColumn(name = "idreceptor")
+    @JoinColumn(name = "id_receptor")
     private Perfil receptor;
 
     @ManyToOne
