@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 public class Solicitudes {
 
     @Id
@@ -44,6 +43,7 @@ public class Solicitudes {
     @JoinColumn(name = "id_prenda")
     private Prenda prenda;
 
-
-
+    @ManyToOne
+    @JoinColumn(name = "id_prenda_ofrecida")
+    private Prenda prendaOfrecida;
 }

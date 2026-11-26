@@ -35,4 +35,8 @@ public interface IRepositorioSolicitudes extends JpaRepository<Solicitudes, Inte
             "WHERE s.estado = 'PENDIENTE' AND s.fechaCreacion <= :fechaLimite")
     int caducarSolicitudesAntiguas(@Param("fechaLimite") LocalDateTime fechaLimite);
 
+    List<Solicitudes> findByPerfilIdOrderByFechaCreacionDesc(Integer perfilId);
+
+    List<Solicitudes> findByPrendaPerfilIdOrderByFechaCreacionDesc(Integer perfilId);
+
 }

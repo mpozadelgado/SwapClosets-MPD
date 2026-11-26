@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -20,4 +22,6 @@ public interface IRepositorioMensajes extends JpaRepository<Mensajes, Integer>{
     @Modifying(clearAutomatically = true)
     @Query("UPDATE Mensajes m SET m.leido = true WHERE m.solicitud.id = :solicitudId AND m.emisor.id <> :perfilId AND m.leido = false")
     int marcarMensajesComoLeidos(@Param("solicitudId") Integer solicitudId, @Param("perfilId") Integer perfilId);
+
+    Page<Mensajes> findBySolicitudIdOrderByFechaEnvioAsc(Integer solicitudId, Pageable pageable);
 }
