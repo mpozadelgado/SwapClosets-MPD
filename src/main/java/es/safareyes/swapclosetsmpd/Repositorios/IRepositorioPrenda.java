@@ -12,6 +12,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+import java.util.List;
 
 @Repository
 public interface IRepositorioPrenda extends JpaRepository<Prenda, Integer>, JpaSpecificationExecutor<Prenda> {
@@ -24,4 +25,6 @@ public interface IRepositorioPrenda extends JpaRepository<Prenda, Integer>, JpaS
     Optional<Prenda> findByIdConDetalles(@Param("id") Integer id);
 
     long countByCategoriaIdAndDisponibilidadTrue(Integer categoriaId);
+
+    List<Prenda> findByPerfilIdAndDisponibilidadTrue(Integer perfilId);
 }
